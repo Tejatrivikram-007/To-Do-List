@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<h3>Task page</h3>
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="">Task Name</label>
+    <input type="text" name="name" value="{{ task.name }}" />
+    <label for="">description</label>
+    <input type="text" name="desc" value="{{ task.description }}">
+    
+
+    <input type="submit" value="Update">
+</form>
+<br><br><br>
+<button><a href="{% url 'home' %}">Go back to Home Page</a></button>
+    {% endblock content %}

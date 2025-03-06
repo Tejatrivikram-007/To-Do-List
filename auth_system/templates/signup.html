@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Signup page</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {% if msg %}
+    <p>{{msg}}</p>
+    {% endif %}
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="un" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="em" required>
+    <label for="password">Password:</label>
+    <input type="password" name="pw1" id="" required>
+    <label for="">Confirm password</label>
+    <input type="password" name="pw2" id="" required>
+    <input type="submit" value="signup"><br><br>
+    Already have an account? <a href="{% url 'login' %}">Login</a>
+    
+</form>
+
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="task_page">
+    {% include 'form.html' %}
+
+    <h3><u>{{request.user.username}} Task Page</u></h3>
+    <div class="tasks">
+        {% for task in all_tasks %}
+            <h1>Task name: {{ task.name }}</h1>
+            <p style="font-size: 24px;">Task Description: {{ task.description }}</p>
+
+            <div class="buttons">
+                <button><a href="{% url 'update' task.id %}">Edit</a></button>
+                <button class="delete"><a href="{% url 'delete' task.id %}">Delete</a></button>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
